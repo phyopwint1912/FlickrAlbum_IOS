@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //A negative means it loops forever
             backgroundMusicPlayer!.numberOfLoops = -1
             backgroundMusicPlayer!.prepareToPlay()
-            backgroundMusicPlayer!.play()
+            //backgroundMusicPlayer!.play()
         }
         catch{
             print("cannot play the file")

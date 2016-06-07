@@ -255,7 +255,6 @@
 				TargetAttributes = {
 					3FB25FC11C635B880003CDD1 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = KD9XW92U5Y;
 					};
 					3FB25FD71C635B890003CDD1 = {
 						CreatedOnToolsVersion = 7.2;
@@ -489,7 +488,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "FlickrAlbum/FlickrAlbum-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -507,7 +506,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "FlickrAlbum/FlickrAlbum-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
