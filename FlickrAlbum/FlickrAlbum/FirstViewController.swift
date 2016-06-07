@@ -8,10 +8,9 @@
 
 import UIKit
 import AVFoundation
-import SwiftyJSON
 import Alamofire
 
-class FirstViewController: UIViewController, UISearchBarDelegate {
+class FirstViewController: UIViewController, UISearchBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
     private let FLICKR_API_KEY:String = "f1b0f588c08905ba232fa983651cdc8e"
     private let FLICKR_URL:String = "https://api.flickr.com/services/rest/"
@@ -26,9 +25,9 @@ class FirstViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    private var receivedData: NSDictionary!
-    private var flickrPhotos: NSDictionary!
-    private var resultsDictionary: NSDictionary!
+    var results: NSMutableDictionary!
+    var receivedData: NSDictionary!
+    var flickrPhotos = [FlickrPhoto]()
     private var AllUrl: NSMutableArray!
     private var AllId: NSMutableArray!
     private var AllTitle: NSMutableArray!
@@ -41,11 +40,9 @@ class FirstViewController: UIViewController, UISearchBarDelegate {
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "vintage_.jpg")!)
         //playBackgroundMusic()
         searchBar.delegate = self
-        //self.collectionView.dataSource = self
-        //self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         loadingIndicator.hidden = true
-        collectionView.hidden = true
-        //loadingIndicator.startAnimating()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar)
@@ -54,25 +51,49 @@ class FirstViewController: UIViewController, UISearchBarDelegate {
         loadingIndicator.hidden = false
         loadingIndicator.startAnimating()
         self.flickrSearchURLForSearchTerm(searchTerm)
-        //self.processDataFromServer()
     }
     
     private func flickrSearchURLForSearchTerm(searchTerm:String) {
-        //Alamofire.request(.GET, FLICKR_URL, parameters: ["method": SEARCH_METHOD, "api_key": FLICKR_API_KEY, "tags":searchTerm,"privacy_filter":PRIVACY_FILTER, "format":FORMAT_TYPE, "nojsoncallback": JSON_CALLBACK, "per_page": LIMIT])
         
         Alamofire.request(.GET, FLICKR_URL, parameters: ["method": SEARCH_METHOD, "api_key": FLICKR_API_KEY, "tags":searchTerm,"privacy_filter":PRIVACY_FILTER, "format":FORMAT_TYPE, "nojsoncallback": JSON_CALLBACK, "per_page":LIMIT])
             .responseJSON { (response) in
-                NSLog("\(response.data)")
                 if(response.data != nil) {
-                    let dataReceived:JSON = JSON(response.data!)
-                    let photoID:String = dataReceived["photos"]["photo"][9]["id"].stringValue
-                    NSLog("This is outside print \(photoID)")
-                    for i in 0 ..< self.LIMIT {
-                        let photoID:String = dataReceived["photos"]["photo"][i]["id"].stringValue
-                        NSLog("This is inside print \(photoID)")
+                    do {
+                        self.loadingIndicator.stopAnimating()
+                        self.loadingIndicator.hidden = true
+                        self.receivedData = try NSJSONSerialization.JSONObjectWithData(response.data!, options:NSJSONReadingOptions(rawValue: 0)) as! NSDictionary
+                    } catch let error as NSError {
+                        print(error);
                     }
+                    
+                    //print(self.receivedData)
+                    self.flickrPhotos = []
+                    for i in 0 ..< self.LIMIT {
+                        let id : String = String(self.receivedData["photos"]!["photo"]!![i]["id"]!!)
+                        let farm : String = String(self.receivedData["photos"]!["photo"]!![i]["farm"]!!)
+                        let title : String = String(self.receivedData["photos"]!["photo"]!![i]["title"]!!)
+                        let server : String = String(self.receivedData["photos"]!["photo"]!![i]["server"]!!)
+                        let secret : String = String(self.receivedData["photos"]!["photo"]!![i]["secret"]!!)
+                        let url:String = "http://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret)_m.jpg"
+                        let flickrPhoto: FlickrPhoto = FlickrPhoto(id: id, title: title, url_l: url)
+                        //                        print(flickrPhoto.id)
+                        //                        print(flickrPhoto.title)
+                        //                        print(flickrPhoto.url_l)
+                       
+                        self.flickrPhotos.append(flickrPhoto)
+                    }
+                    self.finishedDownloading(self.flickrPhotos)
                 }
         }
+    }
+    
+    // MARK:- Flickr Photo Download
+    func finishedDownloading(photos: [FlickrPhoto]) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.flickrPhotos = photos
+            NSLog("Result \(self.flickrPhotos.count)")
+            self.collectionView?.reloadData()
+        })
     }
     
     
@@ -81,82 +102,57 @@ class FirstViewController: UIViewController, UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    //Star of the CollectionView
-    // tell the collection view how many cells to make
-    //    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //
-    //       // print("This is flickerPhoto.count \(AllTitle.count)")
-    //        return AllTitle.count
-    //
-    //    }
-    //
-    //    // make a cell for each cell index path
-    //    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    //
-    //        // get a reference to our storyboard cell
-    //        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
-    //        let photo =  AllUrl[indexPath.row]
-    //
-    //        if let url = NSURL(string: photo as! String) {
-    //            if let data = NSData(contentsOfURL: url) {
-    //                cell.imageView.image = UIImage(data: data)
-    //            }
-    //        }
-    //        let PhotoTitle = AllTitle[indexPath.row]
-    //
-    //        cell.caption.text = PhotoTitle as? String
-    //
-    //        return cell
-    //    }
-    //
-    //    // MARK: - UICollectionViewDelegate protocol
-    //
-    //    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    //        // handle tap events
-    //        print("You selected cell #\(indexPath.item)!")
-    //    }
-    //
-    //
-    //    override func prepareForSegue(
-    //        segue: UIStoryboardSegue, sender: AnyObject?) {
-    //
-    //        if(segue.identifier == "showDetail")
-    //        {
-    //            let cell = sender as! PhotoCollectionViewCell
-    //            let indexPath = self.collectionView!.indexPathForCell(cell)
-    //            let photo_title = AllTitle[indexPath!.row]
-    //            let photo_url =  AllUrl[indexPath!.row]
-    //            let photo_id =  AllId[indexPath!.row]
-    //            let vc = segue.destinationViewController as! SecondViewController
-    //
-    //
-    //            vc.imgtitle = photo_title as! String
-    //            vc.url = photo_url as! String
-    //            vc.id = photo_id as! String
-    //
-    //            print(NSURL(string: photo_url as! String))
-    //
-    //
-    //            if (vc.url == "")
-    //            {
-    //                print("don't")
-    //                var path: String!
-    //                path = NSBundle.mainBundle().pathForResource("404", ofType: "png")
-    //                print("path is \(path)")
-    //                vc.url = path
-    //                //print(vc.url)
-    //
-    //            }
-    //            else
-    //            {
-    //                print("do")
-    //                vc.img = UIImage(data: NSData(contentsOfURL: NSURL(string: photo_url as! String)!)!)
-    //                print("Copy...\(vc.url)")
-    //            }
-    //        }
-    //    }
-    //
-    //
+    //Start of the CollectionView
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return flickrPhotos.count
+    }
+    
+    // Make a cell
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        // get a reference to our storyboard cell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
+        let photoUrl =  flickrPhotos[indexPath.row].url_l
+        NSLog("photoURL \(photoUrl)")
+        if let url = NSURL(string: photoUrl) {
+            if let data = NSData(contentsOfURL: url) {
+                cell.imageView.image = UIImage(data: data)
+            }
+        }
+        let PhotoTitle = flickrPhotos[indexPath.row].title
+        cell.caption.text = PhotoTitle
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        // handle tap events
+        print("You selected cell #\(indexPath.item)!")
+    }
+    
+    
+    override func prepareForSegue(
+        segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if(segue.identifier == "showDetail")
+        {
+            let cell = sender as! PhotoCollectionViewCell
+            let indexPath = self.collectionView!.indexPathForCell(cell)
+            let photo_title = flickrPhotos[indexPath!.row].title
+            let photo_url =  flickrPhotos[indexPath!.row].url_l
+            let photo_id =  flickrPhotos[indexPath!.row].id
+            
+            let vc = segue.destinationViewController as! SecondViewController
+            
+            
+            vc.imgtitle = photo_title
+            vc.url = photo_url
+            vc.id = photo_id
+            
+            vc.img = UIImage(data: NSData(contentsOfURL: NSURL(string: photo_url)!)!)
+            
+            
+        }
+    }
+    
 }
 
 
