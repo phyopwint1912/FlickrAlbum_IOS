@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kyr-XX-JA3">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kyr-XX-JA3">
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -18,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="92" width="768" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OYQ-SI-QGh" id="sgR-Lm-H9j">
-                                    <rect key="frame" x="0.0" y="0.0" width="682" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="682" height="100.5"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vz7-Vq-IyA">
@@ -51,15 +55,24 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xap-sf-OHy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1645.3125" y="465.82031249999994"/>
+=======
+            <point key="canvasLocation" x="2826" y="694"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
         </scene>
         <!--Detail-->
         <scene sceneID="Rs3-IH-N5j">
             <objects>
                 <viewController id="hBS-i3-blL" customClass="FavDetailViewController" customModule="FlickrAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
+<<<<<<< HEAD
                         <viewControllerLayoutGuide type="top" id="XUu-dU-mgs"/>
                         <viewControllerLayoutGuide type="bottom" id="ygC-eO-zwz"/>
+=======
+                        <viewControllerLayoutGuide type="top" id="tAb-cK-KgE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Qfx-xv-eGo"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R0O-2X-R1i">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
@@ -120,20 +133,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7N6-mG-zLr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2394.53125" y="479.88281249999994"/>
+=======
+            <point key="canvasLocation" x="3950" y="649"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
         </scene>
         <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="FlickrAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
+<<<<<<< HEAD
                         <viewControllerLayoutGuide type="top" id="4UU-C5-hLd"/>
                         <viewControllerLayoutGuide type="bottom" id="0WL-aT-UkM"/>
+=======
+                        <viewControllerLayoutGuide type="top" id="D0u-IE-QGm"/>
+                        <viewControllerLayoutGuide type="bottom" id="KOC-qu-AyN"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search Things" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D6O-2b-JL1">
                                 <rect key="frame" x="13" y="88" width="665" height="33"/>
                                 <color key="backgroundColor" red="1" green="0.98541684740000002" blue="0.9885443371" alpha="1" colorSpace="calibratedRGB"/>
@@ -156,35 +179,67 @@
                             </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b85-2u-OBC">
                                 <rect key="frame" x="13" y="129" width="743" height="825"/>
+=======
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="S0T-R2-4S0">
+                                <rect key="frame" x="281" y="282" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="uOp-It-ZrZ">
+                                <rect key="frame" x="20" y="72" width="560" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b85-2u-OBC">
+                                <rect key="frame" x="20" y="134" width="560" height="399"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
                                 <color key="backgroundColor" red="0.97311579806920123" green="1" blue="0.98739859698178856" alpha="0.68000000000000005" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="7Ye-dX-QfY">
-                                    <size key="itemSize" width="223" height="248"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Ye-dX-QfY">
+                                    <size key="itemSize" width="275" height="357"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" id="e7W-bn-4bx" customClass="PhotoCollectionViewCell" customModule="FlickrAlbum" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="223" height="248"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="357"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="223" height="248"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="275" height="357"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+<<<<<<< HEAD
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MeU-r5-v59">
                                                     <rect key="frame" x="5" y="8" width="210" height="183"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title Will Appear" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpj-x6-yTi">
                                                     <rect key="frame" x="8" y="194" width="207" height="46"/>
+=======
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Will Appear" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpj-x6-yTi">
+                                                    <rect key="frame" x="18" y="272" width="244" height="77"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="77" id="fSh-Q1-BW4"/>
+                                                    </constraints>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MeU-r5-v59">
+                                                    <rect key="frame" x="12" y="14" width="250" height="250"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="0.90136818629268001" green="1" blue="0.9802725581506837" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        <size key="customSize" width="223" height="248"/>
+                                        <constraints>
+                                            <constraint firstItem="MeU-r5-v59" firstAttribute="trailing" secondItem="lpj-x6-yTi" secondAttribute="trailing" id="5A3-Gy-aSq"/>
+                                            <constraint firstItem="MeU-r5-v59" firstAttribute="leading" secondItem="e7W-bn-4bx" secondAttribute="leadingMargin" constant="4" id="Bja-l9-wjx"/>
+                                            <constraint firstItem="MeU-r5-v59" firstAttribute="centerX" secondItem="e7W-bn-4bx" secondAttribute="centerX" id="Hfv-lc-wlD"/>
+                                            <constraint firstItem="lpj-x6-yTi" firstAttribute="top" secondItem="MeU-r5-v59" secondAttribute="bottom" constant="8" symbolic="YES" id="M2s-Vr-dkI"/>
+                                            <constraint firstItem="lpj-x6-yTi" firstAttribute="bottom" secondItem="e7W-bn-4bx" secondAttribute="bottomMargin" id="hIj-a8-dwk"/>
+                                            <constraint firstItem="MeU-r5-v59" firstAttribute="top" secondItem="e7W-bn-4bx" secondAttribute="topMargin" constant="6" id="iQV-s9-AFe"/>
+                                            <constraint firstItem="lpj-x6-yTi" firstAttribute="leading" secondItem="e7W-bn-4bx" secondAttribute="leadingMargin" constant="10" id="jX3-mq-nBH"/>
+                                        </constraints>
+                                        <size key="customSize" width="275" height="357"/>
                                         <connections>
                                             <outlet property="caption" destination="lpj-x6-yTi" id="3eh-3c-Y0u"/>
                                             <outlet property="imageView" destination="MeU-r5-v59" id="nQY-s2-cNY"/>
@@ -195,25 +250,45 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.84177810564770705" green="1" blue="0.91103843596338341" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="uOp-It-ZrZ" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="EmZ-z7-VDW"/>
+                            <constraint firstItem="uOp-It-ZrZ" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="ITw-Iq-zDh"/>
+                            <constraint firstItem="KOC-qu-AyN" firstAttribute="top" secondItem="b85-2u-OBC" secondAttribute="bottom" constant="18" id="Mqr-ka-cFj"/>
+                            <constraint firstItem="uOp-It-ZrZ" firstAttribute="centerX" secondItem="S0T-R2-4S0" secondAttribute="centerX" id="Zzt-LM-NoT"/>
+                            <constraint firstItem="uOp-It-ZrZ" firstAttribute="top" secondItem="D0u-IE-QGm" secondAttribute="bottom" constant="8" id="afh-CS-Fgm"/>
+                            <constraint firstItem="b85-2u-OBC" firstAttribute="top" secondItem="uOp-It-ZrZ" secondAttribute="bottom" constant="18" id="hcf-cF-1WE"/>
+                            <constraint firstItem="uOp-It-ZrZ" firstAttribute="leading" secondItem="b85-2u-OBC" secondAttribute="leading" id="pUF-bn-juY"/>
+                            <constraint firstItem="uOp-It-ZrZ" firstAttribute="trailing" secondItem="b85-2u-OBC" secondAttribute="trailing" id="phX-3s-L6I"/>
+                            <constraint firstItem="S0T-R2-4S0" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="xYO-Vu-wTy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VRO-Oi-VJ9"/>
                     <connections>
                         <outlet property="collectionView" destination="b85-2u-OBC" id="ob0-OU-ymB"/>
                         <outlet property="loadingIndicator" destination="S0T-R2-4S0" id="LAT-A4-sqv"/>
-                        <outlet property="textFieldSearch" destination="D6O-2b-JL1" id="pbr-GS-BKd"/>
+                        <outlet property="searchBar" destination="uOp-It-ZrZ" id="uuT-Vh-Kz3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1602.34375" y="-334.5703125"/>
+=======
+            <point key="canvasLocation" x="2722" y="-344"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
         </scene>
         <!--Detail-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController storyboardIdentifier="secondViewController" automaticallyAdjustsScrollViewInsets="NO" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="FlickrAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
+<<<<<<< HEAD
                         <viewControllerLayoutGuide type="top" id="I21-t5-0Oi"/>
                         <viewControllerLayoutGuide type="bottom" id="XrB-PE-tqu"/>
+=======
+                        <viewControllerLayoutGuide type="top" id="sBe-B5-iHa"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mac-VB-BQJ"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -268,20 +343,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="2387.5" y="-321.6796875"/>
+=======
+            <point key="canvasLocation" x="3875" y="-265.4296875"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
         </scene>
         <!--Photo Album-->
         <scene sceneID="d0g-8W-ki5">
             <objects>
                 <viewController id="qW2-wl-gST" customClass="PhotoAlbumViewController" customModule="FlickrAlbum" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
+<<<<<<< HEAD
                         <viewControllerLayoutGuide type="top" id="v7w-s1-4Sh"/>
                         <viewControllerLayoutGuide type="bottom" id="UhI-8V-La5"/>
+=======
+                        <viewControllerLayoutGuide type="top" id="WFE-Bn-vJQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="M6P-xt-MeE"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fKG-b3-JXj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NMe-dk-aLo">
                                 <rect key="frame" x="20" y="28" width="560" height="382"/>
                             </imageView>
@@ -289,6 +374,14 @@
                                 <rect key="frame" x="20" y="449" width="150" height="50"/>
                                 <color key="backgroundColor" red="0.86630608974358969" green="0.69806545691136612" blue="0.35410223085703924" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
+=======
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NMe-dk-aLo">
+                                <rect key="frame" x="31" y="93" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Huz-jP-YkW">
+                                <rect key="frame" x="45" y="712" width="167" height="48"/>
+                                <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
                                 <state key="normal" title="Upload Image">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -296,10 +389,16 @@
                                     <action selector="uploadImageButton:" destination="qW2-wl-gST" eventType="touchUpInside" id="Reo-Ie-9nP"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAe-Jx-kU4">
                                 <rect key="frame" x="20" y="449" width="150" height="50"/>
                                 <color key="backgroundColor" red="0.20815855699999999" green="0.72592788610000003" blue="0.4101300336" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAe-Jx-kU4">
+                                <rect key="frame" x="259" y="712" width="167" height="48"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
                                 <state key="normal" title="Capture Image">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -307,9 +406,15 @@
                                     <action selector="captureImage:" destination="qW2-wl-gST" eventType="touchUpInside" id="JHd-Ea-qWA"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utv-G8-SlW">
                                 <rect key="frame" x="20" y="449" width="150" height="50"/>
                                 <color key="backgroundColor" red="0.37647058820000001" green="0.49019607840000001" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utv-G8-SlW">
+                                <rect key="frame" x="475" y="712" width="167" height="48"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
                                 <state key="normal" title="Share On Social">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -339,7 +444,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8T-BM-FOC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="803" y="-947"/>
+=======
+            <point key="canvasLocation" x="1916.40625" y="-1003.125"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
         </scene>
         <!--Tab No Rotate-->
         <scene sceneID="ePs-jO-6Of">
@@ -358,7 +467,11 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GCy-kA-lvW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-62.500000000000007" y="-395.5078125"/>
+=======
+            <point key="canvasLocation" x="675" y="-20.070422535211257"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
         </scene>
         <!--Search Photos-->
         <scene sceneID="jbm-KI-SxN">
@@ -377,7 +490,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aNv-R8-TuY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="790.625" y="-260.7421875"/>
+=======
+            <point key="canvasLocation" x="1953.7500000000002" y="-265.14084507042253"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
         </scene>
         <!--Favourite List-->
         <scene sceneID="F94-gb-uL2">
@@ -396,7 +513,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wa2-qj-vwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="822.65625" y="451.75781249999994"/>
+=======
+            <point key="canvasLocation" x="1966.875" y="452.11267605633816"/>
+>>>>>>> 04ceb9092247e06f37ba6f9b1daab63c81662831
         </scene>
     </scenes>
     <resources>
