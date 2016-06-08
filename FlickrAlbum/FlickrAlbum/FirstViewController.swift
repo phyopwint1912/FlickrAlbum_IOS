@@ -23,22 +23,16 @@ class FirstViewController: UIViewController, UISearchBarDelegate, UICollectionVi
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    
-<<<<<<< HEAD
-    private var receivedData: NSDictionary!
-    private var flickrPhotos: NSMutableArray!
-    private var resultsDictionary: NSDictionary!
-=======
+
     var results: NSMutableDictionary!
     var receivedData: NSDictionary!
     var flickrPhotos = [FlickrPhoto]()
->>>>>>> 0b2e217196788c68a636ad50bcfcea83222dfbdb
+
     private var AllUrl: NSMutableArray!
     private var AllId: NSMutableArray!
     private var AllTitle: NSMutableArray!
     private var url: NSURL!
-    
+
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
@@ -48,19 +42,16 @@ class FirstViewController: UIViewController, UISearchBarDelegate, UICollectionVi
         searchBar.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        loadingIndicator.hidden = true
+
+        if let layout = collectionView?.collectionViewLayout as? CellLayout {
+            layout.delegate = self
+        }
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar)
     {
         let searchTerm = searchBar.text!
-        loadingIndicator.hidden = false
-        loadingIndicator.startAnimating()
         self.flickrSearchURLForSearchTerm(searchTerm)
-<<<<<<< HEAD
-        
-=======
->>>>>>> 0b2e217196788c68a636ad50bcfcea83222dfbdb
     }
     
     private func flickrSearchURLForSearchTerm(searchTerm:String) {
@@ -68,17 +59,7 @@ class FirstViewController: UIViewController, UISearchBarDelegate, UICollectionVi
         Alamofire.request(.GET, FLICKR_URL, parameters: ["method": SEARCH_METHOD, "api_key": FLICKR_API_KEY, "tags":searchTerm,"privacy_filter":PRIVACY_FILTER, "format":FORMAT_TYPE, "nojsoncallback": JSON_CALLBACK, "per_page":LIMIT])
             .responseJSON { (response) in
                 if(response.data != nil) {
-<<<<<<< HEAD
-                     do {
-                        self.receivedData = try NSJSONSerialization.JSONObjectWithData(response.data!, options: NSJSONReadingOptions()) as? NSDictionary
-                    } catch {
-                        print(error)
-                    }
-                    
-=======
                     do {
-                        self.loadingIndicator.stopAnimating()
-                        self.loadingIndicator.hidden = true
                         self.receivedData = try NSJSONSerialization.JSONObjectWithData(response.data!, options:NSJSONReadingOptions(rawValue: 0)) as! NSDictionary
                     } catch let error as NSError {
                         print(error);
@@ -86,7 +67,7 @@ class FirstViewController: UIViewController, UISearchBarDelegate, UICollectionVi
                     
                     //print(self.receivedData)
                     self.flickrPhotos = []
->>>>>>> 0b2e217196788c68a636ad50bcfcea83222dfbdb
+
                     for i in 0 ..< self.LIMIT {
                         let id : String = String(self.receivedData["photos"]!["photo"]!![i]["id"]!!)
                         let farm : String = String(self.receivedData["photos"]!["photo"]!![i]["farm"]!!)
@@ -94,28 +75,17 @@ class FirstViewController: UIViewController, UISearchBarDelegate, UICollectionVi
                         let server : String = String(self.receivedData["photos"]!["photo"]!![i]["server"]!!)
                         let secret : String = String(self.receivedData["photos"]!["photo"]!![i]["secret"]!!)
                         let url:String = "http://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret)_m.jpg"
-<<<<<<< HEAD
-                        
-                        NSLog("photoID \(id)")
-                        NSLog("title \(title)")
-                        NSLog("url \(url)")
-                        
-                        let flickrPhoto: FlickrPhoto = FlickrPhoto(id: id, title: title, url_l: url)
-                        self.flickrPhotos.addObject(flickrPhoto)
-=======
+
                         let flickrPhoto: FlickrPhoto = FlickrPhoto(id: id, title: title, url_l: url)
                         //                        print(flickrPhoto.id)
                         //                        print(flickrPhoto.title)
                         //                        print(flickrPhoto.url_l)
                        
                         self.flickrPhotos.append(flickrPhoto)
->>>>>>> 0b2e217196788c68a636ad50bcfcea83222dfbdb
+
                     }
                     self.finishedDownloading(self.flickrPhotos)
                 }
-        }
-        if(flickrPhotos != nil) {
-        print(self.flickrPhotos)
         }
     }
     
@@ -178,15 +148,34 @@ class FirstViewController: UIViewController, UISearchBarDelegate, UICollectionVi
             vc.imgtitle = photo_title
             vc.url = photo_url
             vc.id = photo_id
-            
             vc.img = UIImage(data: NSData(contentsOfURL: NSURL(string: photo_url)!)!)
             
             
         }
     }
-    
+ 
 }
 
+extension FirstViewController : CellLayoutDelegate {
+    // Returns the photo height
+    func collectionView(collectionView:UICollectionView, heightForPhotoAtIndexPath indexPath:NSIndexPath , withWidth width:CGFloat) -> CGFloat {
+        let photo_url =  flickrPhotos[indexPath.item].url_l
+        let photo = UIImage(data: NSData(contentsOfURL: NSURL(string: photo_url)!)!)
+        let photosize: CGSize = CGSizeMake((photo?.size.width)!, (photo?.size.height)!)
+        NSLog("Photo Size \(photosize)")
+        let boundingRect =  CGRect(x: 0, y: 0, width: width, height: CGFloat(MAXFLOAT))
+        let rect  = AVMakeRectWithAspectRatioInsideRect(photosize, boundingRect)
+        return rect.size.height
+    }
+    
+    // Returns the annotation size based on the text
+    func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+        let annotationPadding = CGFloat(4)
+        let annotationHeaderHeight = CGFloat(17)
+        let height = annotationPadding + annotationHeaderHeight  + annotationPadding
+        return height
+    }
 
+}
 
 
