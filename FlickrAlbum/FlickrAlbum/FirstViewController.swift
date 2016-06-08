@@ -27,7 +27,7 @@ class FirstViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     private var receivedData: NSDictionary!
-    private var flickrPhotos: NSDictionary!
+    private var flickrPhotos: NSMutableArray!
     private var resultsDictionary: NSDictionary!
     private var AllUrl: NSMutableArray!
     private var AllId: NSMutableArray!
@@ -54,7 +54,7 @@ class FirstViewController: UIViewController, UISearchBarDelegate {
         loadingIndicator.hidden = false
         loadingIndicator.startAnimating()
         self.flickrSearchURLForSearchTerm(searchTerm)
-        //self.processDataFromServer()
+        
     }
     
     private func flickrSearchURLForSearchTerm(searchTerm:String) {
@@ -62,16 +62,32 @@ class FirstViewController: UIViewController, UISearchBarDelegate {
         
         Alamofire.request(.GET, FLICKR_URL, parameters: ["method": SEARCH_METHOD, "api_key": FLICKR_API_KEY, "tags":searchTerm,"privacy_filter":PRIVACY_FILTER, "format":FORMAT_TYPE, "nojsoncallback": JSON_CALLBACK, "per_page":LIMIT])
             .responseJSON { (response) in
-                NSLog("\(response.data)")
                 if(response.data != nil) {
-                    let dataReceived:JSON = JSON(response.data!)
-                    let photoID:String = dataReceived["photos"]["photo"][9]["id"].stringValue
-                    NSLog("This is outside print \(photoID)")
+                     do {
+                        self.receivedData = try NSJSONSerialization.JSONObjectWithData(response.data!, options: NSJSONReadingOptions()) as? NSDictionary
+                    } catch {
+                        print(error)
+                    }
+                    
                     for i in 0 ..< self.LIMIT {
-                        let photoID:String = dataReceived["photos"]["photo"][i]["id"].stringValue
-                        NSLog("This is inside print \(photoID)")
+                        let id : String = String(self.receivedData["photos"]!["photo"]!![i]["id"]!!)
+                        let farm : String = String(self.receivedData["photos"]!["photo"]!![i]["farm"]!!)
+                        let title : String = String(self.receivedData["photos"]!["photo"]!![i]["title"]!!)
+                        let server : String = String(self.receivedData["photos"]!["photo"]!![i]["server"]!!)
+                        let secret : String = String(self.receivedData["photos"]!["photo"]!![i]["secret"]!!)
+                        let url:String = "http://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret)_m.jpg"
+                        
+                        NSLog("photoID \(id)")
+                        NSLog("title \(title)")
+                        NSLog("url \(url)")
+                        
+                        let flickrPhoto: FlickrPhoto = FlickrPhoto(id: id, title: title, url_l: url)
+                        self.flickrPhotos.addObject(flickrPhoto)
                     }
                 }
+        }
+        if(flickrPhotos != nil) {
+        print(self.flickrPhotos)
         }
     }
     

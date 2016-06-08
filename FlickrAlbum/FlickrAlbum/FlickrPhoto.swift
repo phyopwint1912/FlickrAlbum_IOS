@@ -10,12 +10,12 @@ import Foundation
 
 class FlickrPhoto {
 
-    var id: String
-    var secret: String
-    var server: String
-    var farm: String
-    var title: String
-    var url_l: String
+    var id: String!
+    var secret: String!
+    var server: String!
+    var farm: String!
+    var title: String!
+    var url_l: String!
     
     init(id: String, secret: String, server: String, farm: String, title: String, url_l: String) {
         self.id = id
@@ -25,5 +25,10 @@ class FlickrPhoto {
         self.title = title
         self.url_l = url_l
     }
-   
+    
+    init(id: String, title: String, url_l: String) {
+        self.id = id
+        self.title = title
+        self.url_l = url_l
+    }
 }
