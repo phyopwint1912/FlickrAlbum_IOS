@@ -31,5 +31,4 @@ class FlickrPhoto {
         self.title = title
         self.url_l = url_l
     }
-   
 }

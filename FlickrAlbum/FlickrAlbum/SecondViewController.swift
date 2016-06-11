@@ -48,25 +48,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-//    @IBAction func sharedTwit(sender: AnyObject) {
-//        if(SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter)){
-//            let controller = SLComposeViewController(
-//                forServiceType: SLServiceTypeTwitter)
-//            
-//            controller.setInitialText("This is a tweet from IOS 9 Social Framework");
-//            
-//            let url = NSURL(string: self.url)
-//            controller.addURL(url);
-//            let data = NSData(contentsOfURL: url!)
-//            controller.addImage(UIImage(data: data!));
-//            
-//            self.presentViewController(controller,animated: true, completion: nil)
-//        }
-//        else{
-//            print("no twitter account found on device")
-//        }
-//        
-//    }
     
     @IBAction func sharedOnSocial(sender: AnyObject) {
         
@@ -85,26 +66,6 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-//    @IBAction func sharedFacebook(sender: AnyObject) {
-//        
-//        if(SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook)){
-//            let controller = SLComposeViewController(
-//                forServiceType: SLServiceTypeFacebook)
-//            
-//            controller.setInitialText(imgtitle);
-//            
-//            let url = NSURL(string: self.url)
-//            controller.addURL(url);
-//            let data = NSData(contentsOfURL: url!)
-//            controller.addImage(UIImage(data: data!));
-//            
-//            self.presentViewController(controller,animated: true, completion: nil)
-//        }
-//        else{
-//            print("no facebook account found on device")
-//        }
-//    }
-
     //Start SQLite Things
     
     
