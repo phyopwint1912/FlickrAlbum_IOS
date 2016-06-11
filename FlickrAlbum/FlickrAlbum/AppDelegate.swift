@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //A negative means it loops forever
             backgroundMusicPlayer!.numberOfLoops = -1
             backgroundMusicPlayer!.prepareToPlay()
-            backgroundMusicPlayer!.play()
+            //backgroundMusicPlayer!.play()
         }
         catch{
             print("cannot play the file")
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-         backgroundMusicPlayer!.play()
+       //  backgroundMusicPlayer!.play()
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
