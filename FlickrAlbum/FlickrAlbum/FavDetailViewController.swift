@@ -25,13 +25,13 @@ class FavDetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textFieldFavTitle: UILabel!
     @IBOutlet weak var favImageView: UIImageView!
-    
+    var favDb = FavouriteDB()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Favourite Detail Page"
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "vintage_2.jpg")!)
         self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
-        openDB()
+        favDb.openDB()
         self.textFieldFavTitle.text = imgtitle
         self.favImageView.image = img
         textFieldFavCmt.delegate = self
@@ -72,7 +72,7 @@ class FavDetailViewController: UIViewController, UITextFieldDelegate {
     @IBAction func updateComment(sender: AnyObject) {
         
         cmtString = textFieldFavCmt.text
-        let result1 = updateFavList(id as String, cmtString: cmtString as String)
+        let result1 = favDb.updateFavList(id as String, cmtString: cmtString as String)
         if(result1 == true) {
             printMessage("Comment is updated successfully");
         }

@@ -20,5 +20,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         if let attributes = layoutAttributes as? CellLayoutAttributes {
             imageViewHeightLayoutConstraint.constant = attributes.photoHeight
     }
+  }
 }
-}
+

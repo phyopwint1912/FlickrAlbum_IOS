@@ -24,13 +24,13 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldTitle: UILabel!
     
     @IBOutlet weak var detailImageView: UIImageView!
-    
+    var favDb = FavouriteDB()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Search Detail Page"
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "vintage_2.jpg")!)
         self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem
-        openDB()
+        favDb.openDB()
         self.textFieldTitle.text = imgtitle
         self.detailImageView.image = img
         //print("This is imagetitle \(imgtitle)");
@@ -75,7 +75,7 @@ class SecondViewController: UIViewController, UITextFieldDelegate {
         let urlStr = self.url as NSString
         let commentStr = textFieldComment.text
         
-        let result = createFlickrFav(titleStr! as String, commentString: commentStr! as String,urlString: urlStr as String)
+        let result = favDb.createFlickrFav(titleStr! as String, commentString: commentStr! as String,urlString: urlStr as String)
         if(result == true) {
                 printMessage("Favourite is added successfully");
         }

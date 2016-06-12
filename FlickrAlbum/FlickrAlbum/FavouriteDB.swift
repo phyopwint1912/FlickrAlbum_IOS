@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+class FavouriteDB {
 //for sqlite
 var flickrDB : COpaquePointer = nil;
 var insertStatement : COpaquePointer = nil;
@@ -30,7 +31,6 @@ func openDB()
     print(docsDir)
     if(sqlite3_open(docsDir, &flickrDB) == SQLITE_OK){
         let sql = "CREATE TABLE IF NOT EXISTS FLICKR_FAVOURITE (ID INTEGER PRIMARY KEY AUTOINCREMENT, TITLE TEXT, COMMENT TEXT, IMGURL TEXT)"
-        
         //var statement:COpaquePointer = nil
         if(sqlite3_exec(flickrDB, sql, nil, nil, nil) != SQLITE_OK){
             print("Failed to create table")
@@ -146,7 +146,7 @@ func updateFavList(idString: String, cmtString: String) -> Bool
     
 }
 
-
+}
 
 
 

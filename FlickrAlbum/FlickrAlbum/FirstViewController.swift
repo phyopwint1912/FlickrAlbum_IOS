@@ -170,12 +170,20 @@ extension FirstViewController : CellLayoutDelegate {
     
     // Returns the annotation size based on the text
     func collectionView(collectionView: UICollectionView, heightForAnnotationAtIndexPath indexPath: NSIndexPath, withWidth width: CGFloat) -> CGFloat {
+        let title =  flickrPhotos[indexPath.item].title
+        let font = UIFont(name: "AvenirNext-Regular", size: 10)!
+        let commentHeight = self.heightForComment(font, width: width, photoTitle: title)
         let annotationPadding = CGFloat(4)
         let annotationHeaderHeight = CGFloat(17)
-        let height = annotationPadding + annotationHeaderHeight  + annotationPadding
+        let height = annotationPadding + annotationHeaderHeight + commentHeight + annotationPadding
         return height
     }
-
+    
+    func heightForComment(font: UIFont, width: CGFloat, photoTitle: String) -> CGFloat {
+        let rect = NSString(string: photoTitle).boundingRectWithSize(CGSize(width: width, height: CGFloat(MAXFLOAT)), options: .UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        return ceil(rect.height)
+    }
+   
 }
 
 

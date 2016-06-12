@@ -9,12 +9,12 @@
 import UIKit
 
 class FavouriteListTableViewController: UITableViewController {
-
+    var favDb = FavouriteDB()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Favourites"
         self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem
-        openDB()
+        favDb.openDB()
         tableView.reloadData()
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.clearsSelectionOnViewWillAppear = false
@@ -22,15 +22,16 @@ class FavouriteListTableViewController: UITableViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        SelectAllDataFromDB()
+        favDb.SelectAllDataFromDB()
         tableView.reloadData()
     }
+    
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        nameAll = NSMutableArray()
-        urlAll  = NSMutableArray()
-        cmtAll = NSMutableArray()
-        idAll = NSMutableArray()
+        favDb.nameAll = NSMutableArray()
+        favDb.urlAll  = NSMutableArray()
+        favDb.cmtAll = NSMutableArray()
+        favDb.idAll = NSMutableArray()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,17 +47,15 @@ class FavouriteListTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return nameAll.count
+        return favDb.nameAll.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FavCell", forIndexPath: indexPath) as! FavListTableCell
         //let cell = UITableViewCell()
-        let data_head = nameAll[indexPath.row] as! String
-        let obj_image = urlAll[indexPath.row] as! String
-        //let obj_cmt = cmtAll[indexPath.row] as! String
-        //let obj_id = idAll[indexPath.row] as! String
+        let data_head = favDb.nameAll[indexPath.row] as! String
+        let obj_image = favDb.urlAll[indexPath.row] as! String
         //print(obj_image)
         cell.title?.text = data_head
         cell.favimageView?.image = UIImage(data: NSData(contentsOfURL: NSURL(string: obj_image)!)!)
@@ -77,12 +76,12 @@ class FavouriteListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            nameAll.removeObjectAtIndex(indexPath.row)
+            favDb.nameAll.removeObjectAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            let id_select = idAll[indexPath.row];
+            let id_select = favDb.idAll[indexPath.row];
             print(id_select);
-            deleteContact(id_select as! String)
-            SelectAllDataFromDB()
+            favDb.deleteContact(id_select as! String)
+            favDb.SelectAllDataFromDB()
             tableView.reloadData()
             
         } else if editingStyle == .Insert {
@@ -104,13 +103,7 @@ class FavouriteListTableViewController: UITableViewController {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //print("wananananaanan" )
-        //print("You selected cell #\(indexPath.row)!")
-        
-    }
+
     /*
     // MARK: - Navigation
 
@@ -128,10 +121,10 @@ class FavouriteListTableViewController: UITableViewController {
             {
                 let cell = sender as! UITableViewCell
                 let indexPath = self.tableView!.indexPathForCell(cell)
-                let photo_title = nameAll[indexPath!.row]
-                let photo_url =  urlAll[indexPath!.row]
-                let photo_cmt =  cmtAll[indexPath!.row]
-                let photo_id =  idAll[indexPath!.row]
+                let photo_title = favDb.nameAll[indexPath!.row]
+                let photo_url =  favDb.urlAll[indexPath!.row]
+                let photo_cmt =  favDb.cmtAll[indexPath!.row]
+                let photo_id =  favDb.idAll[indexPath!.row]
                 let vc = segue.destinationViewController as! FavDetailViewController
                 vc.id = photo_id as! String
                 vc.imgtitle = photo_title as! String
