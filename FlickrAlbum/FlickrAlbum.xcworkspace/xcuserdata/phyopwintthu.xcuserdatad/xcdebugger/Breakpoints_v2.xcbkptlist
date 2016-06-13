@@ -73,11 +73,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickrAlbum/FirstViewController.swift"
-            timestampString = "487007593.18817"
+            timestampString = "487258994.491944"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "flickrSearchURLForSearchTerm(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -105,13 +105,90 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickrAlbum/FirstViewController.swift"
-            timestampString = "487007593.18817"
+            timestampString = "487258994.491944"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "FirstViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickrAlbum/FirstViewController.swift"
+            timestampString = "487350628.909757"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FlickrAlbum/PhotoCollectionViewCell.swift"
+            timestampString = "487353647.135709"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlickrAlbum.PhotoCollectionViewCell.__deallocating_deinit"
+                  moduleName = "FlickrAlbum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/winhtaikaung/Documents/FlickrAlbum_IOS/FlickrAlbum/FlickrAlbum/PhotoCollectionViewCell.swift"
+                  timestampString = "487353647.369617"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlickrAlbum.PhotoCollectionViewCell.init (frame : __C.CGRect) -&gt; FlickrAlbum.PhotoCollectionViewCell"
+                  moduleName = "FlickrAlbum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/winhtaikaung/Documents/FlickrAlbum_IOS/FlickrAlbum/FlickrAlbum/PhotoCollectionViewCell.swift"
+                  timestampString = "487353647.369809"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "66">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FlickrAlbum.PhotoCollectionViewCell.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;FlickrAlbum.PhotoCollectionViewCell&gt;"
+                  moduleName = "FlickrAlbum"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/winhtaikaung/Documents/FlickrAlbum_IOS/FlickrAlbum/FlickrAlbum/PhotoCollectionViewCell.swift"
+                  timestampString = "487353647.369903"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

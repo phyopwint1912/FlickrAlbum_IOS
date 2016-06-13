@@ -167,6 +167,7 @@
 				3FB25FCB1C635B880003CDD1 /* Main.storyboard */,
 				3FB25FCE1C635B880003CDD1 /* Assets.xcassets */,
 				3FB25FD01C635B890003CDD1 /* LaunchScreen.storyboard */,
+				3F6296471C666F5A00C5C180 /* FavouriteDB.swift */,
 				3FB25FD31C635B890003CDD1 /* Info.plist */,
 				CD49E0131D07E46A000ADD5D /* utils */,
 				3F6296421C666B6B00C5C180 /* Bridging-Header.m */,
@@ -222,7 +223,6 @@
 			children = (
 				3F32A1381C644F6000A742D2 /* FlickrPhoto.swift */,
 				3FF05CD81C64F96E001B8569 /* PhotoCollectionViewCell.swift */,
-				3F6296471C666F5A00C5C180 /* FavouriteDB.swift */,
 				3F8648741C6C608700A7614F /* FavListTableCell.swift */,
 				3F86487C1C6CA7E400A7614F /* TabNoRotate.swift */,
 				CD49E0111D07C70C000ADD5D /* CellLayout.swift */,
