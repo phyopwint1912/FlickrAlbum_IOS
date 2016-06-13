@@ -37,7 +37,7 @@ class FirstViewController: UIViewController, UISearchBarDelegate, UICollectionVi
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
         self.title = "Search Page"
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "vintage_.jpg")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pink.jpg")!)
         //playBackgroundMusic()
         searchBar.delegate = self
         self.collectionView.dataSource = self

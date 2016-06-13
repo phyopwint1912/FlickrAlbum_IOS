@@ -54,17 +54,9 @@ class FavouriteListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FavCell", forIndexPath: indexPath) as! FavListTableCell
         //let cell = UITableViewCell()
-<<<<<<< HEAD
-        let data_head = nameAll[indexPath.row] as! String
-        let obj_image = urlAll[indexPath.row] as! String
-        //let obj_cmt = cmtAll[indexPath.row] as! String
-        //let obj_id = idAll[indexPath.row] as! String
-        print(obj_image)
-=======
         let data_head = favDb.nameAll[indexPath.row] as! String
         let obj_image = favDb.urlAll[indexPath.row] as! String
         //print(obj_image)
->>>>>>> 33e0b7ea1179a8af4a61213005890c97930350db
         cell.title?.text = data_head
         cell.favimageView?.image = UIImage(data: NSData(contentsOfURL: NSURL(string: obj_image)!)!)
         return cell

@@ -29,7 +29,7 @@ class FavDetailViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Favourite Detail Page"
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "vintage_2.jpg")!)
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "pink.jpg")!)
         self.navigationItem.leftBarButtonItem = self.navigationItem.backBarButtonItem;
         favDb.openDB()
         self.textFieldFavTitle.text = imgtitle
