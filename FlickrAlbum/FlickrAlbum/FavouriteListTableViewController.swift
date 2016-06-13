@@ -57,10 +57,10 @@ class FavouriteListTableViewController: UITableViewController {
         let obj_image = urlAll[indexPath.row] as! String
         //let obj_cmt = cmtAll[indexPath.row] as! String
         //let obj_id = idAll[indexPath.row] as! String
-        //print(obj_image)
+        print(obj_image)
         cell.title?.text = data_head
         cell.favimageView?.image = UIImage(data: NSData(contentsOfURL: NSURL(string: obj_image)!)!)
-          return cell
+        return cell
     }
     
 
